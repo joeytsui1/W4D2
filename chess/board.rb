@@ -23,8 +23,8 @@ class Board
         raise error if self[start_pos].empty?
 
         if valid_position?(end_pos)
-            self[start_pos] = end_pos
-            self[start_pos] = :S
+            piece = self[start_pos]
+            self[end_pos] = piece
             return true
         else
             raise error 
