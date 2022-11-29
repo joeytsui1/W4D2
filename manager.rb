@@ -1,10 +1,11 @@
 require_relative "employee"
 class Manager < Employee
+    attr_reader :subordinates
+
     def initialize (name, title, salary, boss=nil)
         super
         @subordinates = []
     end
-
 
     def bonus(mulitplier)
         total = sub_sub_employees(self)
@@ -24,10 +25,10 @@ class Manager < Employee
     end
 end
 
-p ned = Manager.new("Ned", "Founder", 1000000, ["darren", "shawna", "david"])
-p darren = Manager.new("Darren", "TA Manger", 78000, "ned", ["shawna", "david"] )
-p shawna = Employee.new("Shawna", "TA", 12000, "Darren")
-p david = Employee.new("David", "TA", 10000, "Darren")
+p ned = Manager.new("Ned", "Founder", 1000000)
+p darren = Manager.new("Darren", "TA Manger", 78000, ned )
+p shawna = Employee.new("Shawna", "TA", 12000, darren)
+p david = Employee.new("David", "TA", 10000, darren)
 
-p shawna.bonus(3)
 
+p ned.bonus(2)
