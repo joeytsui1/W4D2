@@ -1,7 +1,12 @@
 class Board
+    def self.print_board(arr)
+        arr.each do |row|
+            puts row.join(" ")
+        end
+    end
 
     def initialize
-        @grid = Array.new(8) { Array.new(8) }
+        @grid = Array.new(8) { Array.new(8, "_")}
     end
 
     def [](pos)
@@ -15,8 +20,11 @@ class Board
     end
 
     def move_piece(start_pos, end_pos)
+        raise error if self[start_pos].empty?
+
         if valid_position?(end_pos)
             self[start_pos] = end_pos
+            self[start_pos] = :S
             return true
         else
             raise error 
