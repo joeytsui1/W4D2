@@ -8,17 +8,17 @@ class Manager < Employee
     end
 
     def bonus(mulitplier)
-        total = sub_sub_employees(self)
+        self.sub_sub_employees * mulitplier
     end
 
 
-    def sub_sub_employees(person)
+    def sub_sub_employees
         total = 0
-        person.subordinates.each do |sub_person|
-            if sub_person.subordinates.empty?
-                total += sub_person.salary
+        self.subordinates.each do |employee|
+            if employee.is_a?(Manager)
+                total += employee.sub_sub_employees + employee.salary
             else 
-                total += sub_sub_employees(sub_person)
+                total += employee.salary
             end
         end
         total
