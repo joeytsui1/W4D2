@@ -15,7 +15,7 @@ module Slidable
         [1,-1]
     ]
 
-    def horizontal_dirs
+    def horizontal_vertical_dirs
         horizontal_directions = []
         row, col = self.pos
 
@@ -45,5 +45,18 @@ module Slidable
         end
 
         diagonal_directions
+    end
+
+    def moves
+        all_moves = diagonal_dirs + horizontal_vertical_dirs
+    end
+
+    def move_dirs
+        return HORIZONTAL_DIRS if self.symbol == "♖" || self.symbol == "♜"
+        
+        return DIAGONALLY_DIRS if self.symbol == "♖" || self.symbol == "♜"
+
+        return DIAGONALLY_DIRS.concat(HORIZONTAL_DIRS) if self.symbol == "♖" || self.symbol == "♜"
+
     end
 end
