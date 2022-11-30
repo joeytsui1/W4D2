@@ -49,6 +49,7 @@ module Slidable
 
     def moves
         all_moves = diagonal_dirs + horizontal_vertical_dirs
+        
     end
 
     def move_dirs
