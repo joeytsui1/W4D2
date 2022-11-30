@@ -6,12 +6,8 @@ class Piece
         @pos = pos
     end
 
-    def moves
-        arr = self.move_dirs
-    end
-
-    def valid_moves?
-        
+    def valid_moves
+        self
     end
 
     def to_s
