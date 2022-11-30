@@ -1,6 +1,6 @@
 require_relative "rook.rb"
 class Board
-
+    
     def initialize
         @grid = Array.new(8) { Array.new(8)}
     end
@@ -31,7 +31,7 @@ class Board
     def place_mark(pos, val)
         self[pos] = val
     end
-    
+
     def valid_position?(pos)
         row, col = pos
         (0 <= row && row <= 7) && (0 <= col && col <= 7)
